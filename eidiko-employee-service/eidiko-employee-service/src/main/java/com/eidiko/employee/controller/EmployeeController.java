@@ -4,7 +4,9 @@ import com.eidiko.employee.dto.EmployeeDto;
 import com.eidiko.employee.entites.Employee;
 import com.eidiko.employee.entites.ReportingManager;
 import com.eidiko.employee.service.EmployeeServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +29,10 @@ public class EmployeeController {
        return  employeeServiceImpl.getEmployeeById(empId);
     }
     @PostMapping("/employee")
-    public ReportingManager add(@RequestBody EmployeeDto employeeDto)
+    public ReportingManager add(@Valid @RequestBody EmployeeDto employeeDto)
     {
+      //  if(employeeDto.getManagerId()<0)
+           // throw new MethodArgumentNotValidException();
        return employeeServiceImpl.addingEmployee(employeeDto);
     }
 

@@ -56,7 +56,7 @@ public class EmployeeServiceImpl implements EmployeeService{
       Optional<Employee>list=  employeeRepository.findById(empId);
         if(list.isPresent()){
             Employee employee=list.get();
-            employee.setEmpName(employeeDto.getEmpName());
+                employee.setEmpName(employeeDto.getEmpName());
             employee.setStatus(employeeDto.getStatus());
             employee.setDateOfJoining(employeeDto.getDateOfJoining());
             employee=employeeRepository.save(employee);

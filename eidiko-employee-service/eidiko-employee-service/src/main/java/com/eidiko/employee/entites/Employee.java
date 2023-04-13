@@ -2,6 +2,7 @@ package com.eidiko.employee.entites;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Employee {
     @Column(name = "EMP_NAME")
     private String empName;
     @Column(name = "EMAIL_ID")
+    @Email(message = "emil should me eneterd")
     private String emailId;
     @Column(name = "DATE_OF_JOINING")
     private Timestamp dateOfJoining;

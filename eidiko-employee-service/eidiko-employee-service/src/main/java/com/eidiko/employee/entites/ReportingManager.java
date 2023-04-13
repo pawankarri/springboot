@@ -3,6 +3,9 @@ package com.eidiko.employee.entites;
 import com.eidiko.employee.dto.EmployeeDto;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,10 +25,12 @@ public class ReportingManager {
     @Column(name = "REPORTING_MANAGER_ID")
     private long reportingManagerId;
     @Column(name = "MANAGER_ID")
+    @Min(1)
     private long managerId;
     @Column(name = "MODIFIED_DATE")
     private Timestamp modifiedDate;
     @Column(name = "START_DATE")
+
     private Time startDate;
     @Column(name = "END_DATE")
     private Time endDate;
